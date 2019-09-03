@@ -15,14 +15,21 @@ function App() {
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
   const [display, setDisplay] = useState(0);
-  const [number, setNumber] = useState(numbers);
+  const [number] = useState(numbers);
+  const [operator] = useState(operators);
 
   const onNumClick = (e) => {
-    if (e.target.textContent) {
-      setDisplay(parseInt(display + e.target.textContent, 10))
-      console.log(display)
-    }
+    setDisplay(parseInt(display + e.target.textContent, 10))
+  }
 
+  const onOpClick = (e) => {
+    let curDisplay = display;
+    console.log(curDisplay)
+    setDisplay(0)
+    if (e.target.textContent === '+') {
+      
+    }
+    console.log(e.target.textContent)
   }
 
   return (
@@ -36,7 +43,7 @@ function App() {
             <Numbers numbers={number} onNumClick={onNumClick}/>
           </div>
           <div className="second-half">
-            <Operators />
+            <Operators operators={operator} onOpClick={onOpClick}/>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React from "react";
 
 const NumberButton = (props) => {
   return (
-    <button className="num-button" onClick={props.onNumClick}>{props.number}</button>
+    <button name={props.number} className="num-button" onClick={e => props.onNumClick(e.target.name)}>{props.number}</button>
   );
 };
 
